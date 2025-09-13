@@ -1,1 +1,2 @@
 
+comments = {}  # id -> post dict
