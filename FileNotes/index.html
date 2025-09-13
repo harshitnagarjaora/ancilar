@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>File Notes — Plain JS</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="container">
+    <header>
+      <h1>File Notes</h1>
+      <p class="muted">Create, view, copy and delete notes attached to files. Plain JavaScript + localStorage.</p>
+    </header>
+
+    <section class="toolbar">
+      <label for="fileSelect">Select file:</label>
+      <select id="fileSelect"></select>
+      <div class="spacer"></div>
+      <button id="exportBtn">Export JSON</button>
+      <button id="importBtn">Import JSON</button>
+      <input id="importInput" type="file" accept="application/json" class="hidden" />
+      <button id="clearBtn" class="danger">Clear All</button>
+    </section>
+
+    <section class="grid">
+      <div class="card">
+        <h2>Create note</h2>
+        <form id="noteForm">
+          <label>Title <span class="required">*</span></label>
+          <input id="title" type="text" required />
+
+          <label>Content</label>
+          <textarea id="content" rows="5"></textarea>
+
+          <div class="actions">
+            <button type="submit">Add Note</button>
+            <button type="button" id="resetBtn">Reset</button>
+          </div>
+          <div id="error" class="error"></div>
+        </form>
+      </div>
+
+      <div class="card">
+        <h2>Notes</h2>
+        <div id="notesList" class="notesList">No notes yet.</div>
+      </div>
+    </section>
+
+
+    <div id="modal" class="modal hidden" role="dialog" aria-modal="true">
+      <div class="modal-backdrop" id="modalBackdrop"></div>
+      <div class="modal-content">
+        <button id="closeModal" class="close">✕</button>
+        <h3 id="modalTitle"></h3>
+        <pre id="modalBody"></pre>
+        <div class="meta" id="modalMeta"></div>
+        <div class="modal-actions">
+          <button id="modalCloseBtn">Close</button>
+        </div>
+      </div>
+    </div>
+
+    
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
